@@ -1,0 +1,9 @@
+%tr.list
+  %td
+    = link_to list.name, list
+
+  %td.pull-right
+    = link_to [:edit, list], class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+    = link_to list, method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-danger' do
+      %span.glyphicon.glyphicon-trash

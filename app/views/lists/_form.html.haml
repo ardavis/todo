@@ -1,0 +1,13 @@
+.row
+  .well.col-xs-4
+    = form_for @list do |f|
+
+      - if @list.errors.any?
+        %ul
+          - @list.errors.full_messages.each do |message|
+            %li= message
+
+      .form-group
+        = f.text_field :name, class: 'form-control', placeholder: 'Name'
+
+      = f.submit submit_text(@list), class: 'btn btn-primary'

@@ -1,0 +1,7 @@
+%h2 Lists
+
+%table.table.table-striped
+  = render @lists
+
+= link_to new_list_path, class: 'btn btn-success' do
+  %span.glyphicon.glyphicon-plus

@@ -1,0 +1,16 @@
+.row
+  .well.col-xs-4
+    = form_for [@list, @todo] do |f|
+
+      - if @todo.errors.any?
+        %ul
+          - @todo.errors.full_messages.each do |message|
+            %li= message
+
+      .form-group
+        = f.text_field :title, class: 'form-control', placeholder: 'Title'
+
+      .form-group
+        = f.text_area :description, class: 'form-control', placeholder: 'Description'
+
+      = f.submit submit_text(@todo), class: 'btn btn-primary'

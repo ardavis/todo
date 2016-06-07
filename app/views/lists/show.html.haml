@@ -1,0 +1,12 @@
+%h1= @list.name
+
+= link_to new_list_todo_path(@list), class: 'btn btn-success' do
+  %span.glyphicon.glyphicon-plus
+
+%h2 Todos
+%table.table.table-striped
+  = render @list.incomplete_todos
+
+%h2 Completed Todos
+%table.table.table-striped
+  = render @list.completed_todos
