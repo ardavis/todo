@@ -12,5 +12,6 @@
 
       .form-group
         = f.text_area :description, class: 'form-control', placeholder: 'Description'
-
+      
+      = f.hidden_field :parent_id, value: @parentID
       = f.submit submit_text(@todo), class: 'btn btn-primary'

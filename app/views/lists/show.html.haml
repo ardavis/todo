@@ -1,6 +1,6 @@
 %h1= @list.name
 
-= link_to new_list_todo_path(@list), class: 'btn btn-success' do
+= link_to new_list_todo_path(@list, @parentID), class: 'btn btn-success' do
   %span.glyphicon.glyphicon-plus
 
 %h2 Todos

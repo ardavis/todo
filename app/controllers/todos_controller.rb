@@ -2,21 +2,33 @@ class TodosController < ApplicationController
 
   before_action :get_list
   before_action :get_todo, only: [:show, :edit, :update, :destroy, :complete, :reopen]
-
+  before_action :get_parent, only: [:show] #can't get_parent for create method.. how to pass
+  
+  
   def show
   end
 
   def new
+    @parentID = params[:format] 
     @todo = @list.todos.new
   end
 
   def edit
+    @parentID = @todo.parent_id
   end
-
+  
+  
   def create
     @todo = @list.todos.new(todo_params)
     if @todo.save
-      redirect_to @list
+
+      if @todo.parent_id
+        # redirect_to list_todo_path(@todo.parent.list, @todo.parent)
+        redirect_to [@todo.parent.list, @todo.parent]
+      else
+        redirect_to @list
+      end
+
     else
       render :new
     end
@@ -36,14 +48,24 @@ class TodosController < ApplicationController
     unless @todo.complete!
       flash[:alert] = 'Unable to complete the todo'
     end
-    redirect_to @list
+    if @todo.parent_id
+      # redirect_to list_todo_path(@todo.parent.list, @todo.parent)
+      redirect_to [@todo.parent.list, @todo.parent]
+    else
+      redirect_to @list
+    end
   end
 
   def reopen
     unless @todo.reopen!
       flash[:alert] = 'Unable to reopen the todo'
     end
-    redirect_to @list
+    if @todo.parent_id
+      # redirect_to list_todo_path(@todo.parent.list, @todo.parent)
+      redirect_to [@todo.parent.list, @todo.parent]
+    else
+      redirect_to @list
+    end
   end
 
   private
@@ -55,9 +77,14 @@ class TodosController < ApplicationController
   def get_todo
     @todo = Todo.find(params[:id])
   end
-
-  def todo_params
-    params.require(:todo).permit(:title, :description)
+  
+  def get_parent
+    @parentID = @todo.id
   end
+  
+  def todo_params
+    params.require(:todo).permit(:title, :description, :parent_id)
+  end
+  
 
 end

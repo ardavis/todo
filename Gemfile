@@ -5,9 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 
 gem 'haml-rails'
-gem 'byebug'
 gem 'bootstrap-sass'
-
+gem 'therubyracer'
 
 
 
