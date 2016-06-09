@@ -1,3 +1,9 @@
 %h1= @todo.title
 
 %p= @todo.description
+- if @todo.due_date
+  %p= @todo.due_date.localtime.strftime('Due at: %A, %m/%d, at %I:%M%p')
+
+-#%hr
+-#= link_to @todo.list, class: 'btn btn-warning' do
+-#  %span.glyphicon.glyphicon-arrow-up

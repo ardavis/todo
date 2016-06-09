@@ -13,4 +13,7 @@
       .form-group
         = f.text_area :description, class: 'form-control', placeholder: 'Description'
 
+      .form-group
+        = f.datetime_select :due_date, class: 'form-control', placeholder: 'Due Date'
+
       = f.submit submit_text(@todo), class: 'btn btn-primary'

@@ -11,4 +11,12 @@ class List < ActiveRecord::Base
     todos.completed
   end
 
+  def date_less_than_a_week
+    todos.incomplete.where("due_date < ?", Time.now + 7.days)
+  end
+
+  def date_more_than_a_week
+    todos.incomplete.where("due_date >= ?", Time.now + 7.days)
+  end
+
 end

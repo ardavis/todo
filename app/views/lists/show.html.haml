@@ -3,10 +3,14 @@
 = link_to new_list_todo_path(@list), class: 'btn btn-success' do
   %span.glyphicon.glyphicon-plus
 
-%h2 Todos
+%h2 To-do:
 %table.table.table-striped
-  = render @list.incomplete_todos
+  = render @list.date_less_than_a_week
 
-%h2 Completed Todos
+%h2 To-don't:
+%table.table.table-striped
+  = render @list.date_more_than_a_week
+
+%h2 To-dids:
 %table.table.table-striped
   = render @list.completed_todos
