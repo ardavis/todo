@@ -5,10 +5,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 
 gem 'haml-rails'
-gem 'byebug'
 gem 'bootstrap-sass'
 gem 'therubyracer'
+<<<<<<< HEAD
 
+=======
+>>>>>>> baf18e35f19682f27997c2b3acb706be3249ab25
 
 
 

@@ -1,5 +1,6 @@
 %h1= @todo.title
 
+<<<<<<< HEAD
 %p= @todo.description
 - if @todo.due_date
   %p= @todo.due_date.localtime.strftime('Due at: %A, %m/%d, at %I:%M%p')
@@ -7,3 +8,24 @@
 -#%hr
 -#= link_to @todo.list, class: 'btn btn-warning' do
 -#  %span.glyphicon.glyphicon-arrow-up
+=======
+%p #{@todo.description}
+
+- if not @todo.parent
+  =link_to new_list_todo_path(@list, @parentID), class: 'btn btn-success' do
+    %span.glyphicon.glyphicon-plus
+
+
+- if not @todo.parent
+  %h4 #{@todo.title}, Subtasks:
+  %table.table.table-striped
+    = render @todo.child_todos
+  
+  // -#%h2 #{@todo.title}, Completed Todos
+  // -#%table.table.table-striped
+  //   -#= render @list.completed_todos
+
+
+
+
+>>>>>>> baf18e35f19682f27997c2b3acb706be3249ab25

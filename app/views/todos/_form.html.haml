@@ -12,8 +12,13 @@
 
       .form-group
         = f.text_area :description, class: 'form-control', placeholder: 'Description'
+<<<<<<< HEAD
 
       .form-group
         = f.datetime_select :due_date, class: 'form-control', placeholder: 'Due Date'
 
+=======
+      
+      = f.hidden_field :parent_id, value: @parentID
+>>>>>>> baf18e35f19682f27997c2b3acb706be3249ab25
       = f.submit submit_text(@todo), class: 'btn btn-primary'

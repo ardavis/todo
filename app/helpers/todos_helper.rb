@@ -11,5 +11,14 @@ module TodosHelper
       end
     end
   end
+  
+  def new_nested_todo
+    if @parentID
+      return "#{Todo.find(@parentID).title}"
+    else
+      return "#{@list.name}"
+    end
+  end
+
 
 end
