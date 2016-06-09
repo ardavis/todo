@@ -7,22 +7,6 @@ gem 'rails', '4.2.5.1'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'therubyracer'
-<<<<<<< HEAD
-
-=======
->>>>>>> baf18e35f19682f27997c2b3acb706be3249ab25
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Use sqlite3 as the database for Active Record
