@@ -8,8 +8,10 @@ class Todo < ActiveRecord::Base
 
   scope :incomplete, -> { where(completed_at: nil).where(parent_id: nil) }
   scope :completed, -> { where.not(completed_at: nil).where(parent_id: nil)}
-    
-    
+
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   scope :child_todos, -> {where(parent_id: self.id)}
 
   def completed?

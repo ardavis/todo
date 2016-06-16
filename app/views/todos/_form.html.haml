@@ -16,6 +16,9 @@
       .form-group
         = f.datetime_select :due_date, class: 'form-control', placeholder: 'Due Date'
 
+      .form-group
+        = f.file_field :image, class: 'form-control', placeholder: 'Image'
+
       = f.hidden_field :parent_id, value: @parentID
 
       = f.submit submit_text(@todo), class: 'btn btn-primary'

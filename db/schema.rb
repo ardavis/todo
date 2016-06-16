@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608143603) do
+ActiveRecord::Schema.define(version: 20160616135629) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
@@ -24,10 +24,15 @@ ActiveRecord::Schema.define(version: 20160608143603) do
     t.text     "description"
     t.datetime "due_date"
     t.datetime "completed_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "list_id"
     t.integer  "parent_id"
+    t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

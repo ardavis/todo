@@ -6,6 +6,7 @@ gem 'rails', '4.2.5.1'
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'paperclip'
 gem 'therubyracer'
 
 
