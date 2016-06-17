@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'therubyracer'
+gem 'devise'
 
 
 # Use sqlite3 as the database for Active Record

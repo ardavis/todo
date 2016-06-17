@@ -2,16 +2,37 @@
 %html
   %head
     %title Todo
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
     = csrf_meta_tags
   %body
 
+    %nav.nav.navbar-default
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded": "false", "data-target": "#bs-example-navbar-collapse-1", "data-toggle": "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          = link_to 'Todo App', root_path, class: 'navbar-brand'
+
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            - if user_signed_in?
+              %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+
+
+          
+
+
     .container
-      - if notice
-        .alert.alert-success= notice
-      - if alert
-        .alert.alert-danger= alert
+      .row
+        - if notice
+          .alert.alert-success= notice
+        - if alert
+          .alert.alert-danger= alert
 
       = yield
 

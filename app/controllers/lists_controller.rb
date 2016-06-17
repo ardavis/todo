@@ -3,11 +3,11 @@ class ListsController < ApplicationController
   before_action :get_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def new
-    @list = List.new
+    @list = current_user.lists.new
   end
 
   def show
@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
     if @list.save
       redirect_to lists_path
     else
